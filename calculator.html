@@ -11,18 +11,20 @@
       {{ message }}
       <div>
         1st number:
-        <input type="text" />
+        <input v-model="number1" type="text" />
       </div>
       <div>
         2nd number:
-        <input type="text" />
+        <input v-model="number2" type="text" />
       </div>
       <div>
         3rd number:
-        <input type="text" />
+        <input v-model="number3" type="text" />
       </div>
-      <div><button>Compute sum</button></div>
-      <p>The sum is:</p>
+      <div>
+        <button v-on:click="calculateSum">Compute sum</button>
+      </div>
+      <p>{{ resultText }} {{ sum }}</p>
     </div>
   </body>
 </html>
