@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Practice Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <h1>Potato Machine</h1>
+    <div id="app-5">
+      <p>{{ message }}</p>
+      <button v-on:click="messageToPotato">Turn into potato</button>
+      <input v-model="message" />
+    </div>
+    <div></div>
+  </body>
+</html>
