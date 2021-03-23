@@ -3,7 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <title>Practice Vue.js</title>
+    <style>
+      .disabled {
+        color: lightgrey;
+        transition: 0.3s;
+        padding: 2px 32px;
+        text-align: center;
+        background-color: #f4511e;
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js" defer></script>
   </head>
   <body>
@@ -12,7 +22,22 @@
       <p>{{ message }}</p>
       <button v-on:click="messageToPotato">Turn into potato</button>
       <input v-model="message" />
+      <hr />
+      <span v-bind:class="{disabled: secretAttribute}">{{ secret }}</span>
+      <div></div>
+      <input type="checkbox" v-on:click="toggleSecretAttribute" />
+      Toggle Secret
+      <hr />
+      <h5 style="color:burlywood">*List of potatoes*</h5>
+      <ol>
+        <li v-for="potato in potatoes">{{ potato }}</l>
+      </ol>
+      <input v-model="newPotato" />
+      <button v-on:click="addNewPotato">Add new potato</button>
+      <hr>
+      <ol>
+        <li v-for="todo in todos">{{ todo.title }}</li>
+      <ol>
     </div>
-    <div></div>
   </body>
 </html>

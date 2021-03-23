@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Practice Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="products.js" defer></script>
+  </head>
+  <body>
+    <h1>Products Page</h1>
+    <div id="app">
+      <ol>
+        <li v-for="product in products"><button v-on:click="showAction(product.id)">{{ product.name }}</button></li>
+      </ol>
+      <hr />
+      <div>
+        <ul>
+          Name: {{ currentProduct.name }}
+        </ul>
+        <ul>
+          Description: {{ currentProduct.description}}
+        </ul>
+        <ul>
+          Price: {{ currentProduct.price }}
+        </ul>
+        <ul>
+          Product ID: {{ currentProduct.id }}
+        </ul>
+        <ul>
+          Image URL: {{ currentProduct.image_url }}
+        </ul>
+        <!-- <image src="currentProduct.image_url"></image> -->
+        <hr />
+        <h4>Enter a new Product:</h4>
+        <div>
+          <input v-model="params.name" />
+          -- Name
+        </div>
+        <div>
+          <input v-model="params.description" />
+          -- Description
+        </div>
+        <div>
+          <input v-model="params.price" />
+          -- Price
+        </div>
+        <div>
+          <input v-model="params.image_url" />
+          -- Image URL
+        </div>
+        <button v-on:click="createAction">Create Product</button>
+        <h4>Update an existing Product:</h4>
+        <div>
+          <input v-model="update.id" />
+          -- Product ID
+        </div>
+        <div>
+          <input v-model="update.name" />
+          -- Name
+        </div>
+        <div>
+          <input v-model="update.description" />
+          -- Description
+        </div>
+        <div>
+          <input v-model="update.price" />
+          -- Price
+        </div>
+        <div>
+          <input v-model="update.image_url" />
+          -- Image URL
+        </div>
+        <button v-on:click="updateAction(update.id)">Update Product</button>
+        <p>
+          <h4>Delete a Product:</h4>
+          <input v-model="productId">
+          -- Product ID {{ productId }}
+          <div>
+            <button v-on:click="deleteAction(productId)">Delete Product</button>
+            {{ deleteResponse.message }}
+          </div>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
